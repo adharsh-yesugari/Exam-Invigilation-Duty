@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    background-color: #FFF8DB;
+    width:100%;
+}
+
+header {
+    display:flex;
+    justify-content:space-around;
+    background-color:#E0A75E;
+}
+
+.main_title {
+    padding-top:2rem;
+    font-size: large;
+}
+
+.college_logo {
+    padding:10px;
+    width:80px;
+    border-radius:12px;
+}
+
+#navlinks {
+	width:100%;
+	height:40px;
+	background-color:#973131;
+	padding:10px 60px 10px 10px;
+	display:flex;
+	justify-content:flex-end;
+	column-gap:1rem;
+}
+
+#navbar {
+    width:100%;
+	background-color:#973131;
+	padding:10px 60px;
+	display:flex;
+	justify-content:space-around;
+}
+
+.admin_home {
+    margin:10rem 0;
+    align-items:center;
+    text-align:center;
+}
+
+.paragraph{
+    margin:1rem 0;
+}
+
+.login_link {
+	font-size:18px;
+	color:#fff;
+	font-weight:600;
+}
+
+.homepage {
+    margin-top:2rem;
+    display:flex;
+    flex-direction:column;
+    row-gap:1rem;
+    justify-content:center;
+    align-items:center;
+}
+
+.login {
+    max-width:100%;
+    width:90%;
+    padding:10px 10px;
+    border:2px solid #111;
+    border-radius:5px;
+}
+
+.login_title {
+    padding-bottom:0;
+    text-align:center;
+}
+
+.login .input_box {
+    width:100%;
+    height:40px;
+    background:#fff;
+    margin:20px 0;
+    border-radius:5px;
+}
+
+.selection {
+    background:#fff;
+    padding: 5px 20px;
+    border: 1px solid #111;
+    border-radius: 5px;
+}
+
+.common-input {
+    padding:5px 0;
+}
+
+.input_box input {
+    width:100%;
+    height:100%;
+    background:transparent;
+    border:none;
+    padding:0 20px;
+    border:1px solid #111;
+    border-radius:5px;
+}
+
+.login .remember-forget {
+	padding-top:10px;
+    display:flex;
+    justify-content : space-between;
+    font-size:14px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+   accent-color:#fff;
+   margin-right:3px;
+}
+
+.remember-forget a {
+    color:#111;
+}
+
+.login .btn {
+    width:100%;
+    height:40px;
+    background:#fff;
+    border:1px solid #111;
+    border-radius:10px;
+    box-shadow : 0 0 10px rgba(0, 0, 0, .1);
+    cursor:pointer;
+    font-size:16px;
+    color:#333;
+    font-weight:600;
+}
+
+.btn:hover {
+    background-color:#B6C7AA;
+}
+
+.login .register_page {
+    font-size:14.5px;
+    text-align:center;
+    margin-top:20px;
+}
+
+.register_page a {
+    font-weight:600;
+}
+
+/*================================
+        ADD FACULTY CSS
+ ==============================*/
+.faculty{
+    padding:5px;
+}
+
+.options {
+    padding:5px;
+    border:1px solid #111;
+    border-radius:5px;
+}
+
+option {
+    height:50px;
+}
+
+/*================================
+        LEISURE TIME CSS
+ ==============================*/
+
+.select_options{
+    margin:1rem 0;
+    width:100%;
+}
+
+.options {
+    width:100%;
+    margin-top:10px;
+    line-height:20px;
+}
+
+.faculty_common {
+    padding:10px 5px;
+}
+
+.valid {
+    background-color:lightgreen;
+    text-align:center;
+    padding:20px;
+    border:10x solid darkgreen;
+}
+
+.success-message {
+    background-color: lightgreen;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid darkgreen;
+}
+.error-message {
+    background-color: lightcoral;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid darkred;
+}
+
+
+
+@media (min-width:768px) {
+    header {
+        display:flex;
+        justify-content:space-around;
+        background-color:#E0A75E;
+    }
+
+    .main_title {
+        padding-top:2.75rem;
+        font-weight:900;
+        font-size:xx-large;
+    }
+
+    .college_logo {
+        padding:10px;
+        width:120px;
+        height:120px;
+        border-radius:12px;
+    }
+
+    #navlinks {
+    	width:100%;
+    	height:40px;
+    	background-color:#973131;
+    	padding:10px 60px 10px 10px;
+    	display:flex;
+    	justify-content:flex-end;
+    }
+
+    .login_link {
+    	font-size:18px;
+    	color:#fff;
+    	font-weight:600;
+    }
+
+    .homepage {
+        margin-top:2.5rem;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+        row-gap:0rem;
+        align-items:unset;
+    }
+
+    .login {
+        width:480px;
+        padding:10px 50px;
+        border:2px solid #111;
+        border-radius:5px;
+    }
+
+    .login_title {
+        padding-bottom:5px;
+        text-align:center;
+        font-weight:900;
+        font-size:xx-large;
+    }
+
+    .login .input_box {
+        width:100%;
+        height:40px;
+        background:#fff;
+        margin:15px 0;
+        border-radius:5px;
+    }
+
+    .input_box input {
+        width:100%;
+        height:100%;
+        background:transparent;
+        border:none;
+        padding:0 20px;
+        border:1px solid #111;
+        border-radius:5px;
+    }
+
+    .login .remember-forget {
+        display:flex;
+        justify-content : space-between;
+        font-size:14px;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        accent-color:#fff;
+        margin-right:3px;
+    }
+
+    .remember-forget a {
+        color:#111;
+    }
+
+    .login .btn {
+        width:100%;
+        height:40px;
+        background:#fff;
+        border:1px solid #111;
+        border-radius:10px;
+        box-shadow : 0 0 10px rgba(0, 0, 0, .1);
+        cursor:pointer;
+        font-size:16px;
+        color:#333;
+        font-weight:600;
+    }
+
+    .btn:hover {
+        background-color:#B6C7AA;
+    }
+
+    .login .register_page {
+        font-size:14.5px;
+        text-align:center;
+        margin-top:20px;
+    }
+
+    .register_page a {
+        font-weight:600;
+    }
+    /*===========================
+            Admin Home Styles
+    =============================*/
+    #navbar {
+        background-color:#973131;
+    }
+}
+
+
+
