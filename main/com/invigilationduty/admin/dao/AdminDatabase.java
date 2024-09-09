@@ -7,15 +7,15 @@ import main.com.invigilationduty.faculty.entity.Faculty;
 import java.util.List;
 
 public interface AdminDatabase {
-    public boolean insertAdmin(Admin admin);
+    boolean insertAdmin(Admin admin);
 
-    public Admin searchAdminByEmailIdAndPassword(Admin admin);
+    Admin searchAdminByEmailIdAndPassword(Admin admin);
 
-    public Admin findAdminByEmailId(Admin admin);
+    Admin findAdminByEmailId(Admin admin);
 
-    public boolean addBlockNumberFloorNumberRoomNumber(Hall hall);
+    boolean addBlockNumberFloorNumberRoomNumber(Hall hall);
 
-    public List<Faculty> selectFacultyWithLeisureTIme(String leisureTime);
+    List<Faculty> selectFacultyWithLeisureTIme(String leisureTime);
 
     Faculty randomHallAllocatedSpecifiedFaculty(Faculty faculty);
 
