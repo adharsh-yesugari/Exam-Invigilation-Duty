@@ -11,28 +11,41 @@ import main.com.invigilationduty.admin.service.AdminServiceImplementation;
 import main.com.invigilationduty.faculty.entity.Faculty;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/chooseFacultyForLeisureTime")
 public class ChooseFacultyOfLeisureTime extends HttpServlet {
     AdminService adminService = new AdminServiceImplementation();
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Retrieve selected faculty details from form submission
-        System.out.println("Executing this Method");
-        String facultyFirstName = request.getParameter("facultyFirstName");
-        String facultyEmail = request.getParameter("facultyEmail");
+        String randomSelection = request.getParameter("randomSelection");
         String examName = request.getParameter("exam_name");
         String examTime = request.getParameter("exam_time");
         String examDate = request.getParameter("exam_date");
-        System.out.println("facultyName : " + facultyFirstName + " facultyEmailid : " + facultyEmail);
-        System.out.println("ExamName : " + examName + " " + "Exam_time : " + examTime + " ExamData : " +examDate);
-        Faculty faculty = new Faculty(facultyFirstName, facultyEmail, examName, examTime, examDate);
-        Faculty updatedFaculty = adminService.allocateRandomHalltoFacultySpecified(faculty);
 
-        System.out.println(updatedFaculty.toString());
+        Faculty faculty = null;
 
-        request.setAttribute("updatedFaculty", updatedFaculty);
+        if (randomSelection != null && randomSelection.equals("true")) {
+            // Handle random selection
+            List<Faculty> facultyList = adminService.getFacultyList();
+            if (facultyList != null && !facultyList.isEmpty()) {
+                faculty = facultyList.get(new java.util.Random().nextInt(facultyList.size()));
+            }
+        }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ViewSchedule.jsp");
-        dispatcher.forward(request, response);
+        if (faculty != null) {
+            faculty.setExamName(examName);
+            faculty.setExamTime(examTime);
+            faculty.setExamDate(examDate);
+
+            Faculty updatedFaculty = adminService.allocateRandomHalltoFacultySpecified(faculty);
+
+            request.setAttribute("updatedFaculty", updatedFaculty);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ViewSchedule.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            response.sendRedirect("index.jsp");
+        }
+
     }
 }
