@@ -18,4 +18,6 @@ public interface AdminDatabase {
     public List<Faculty> selectFacultyWithLeisureTIme(String leisureTime);
 
     Faculty randomHallAllocatedSpecifiedFaculty(Faculty faculty);
+
+     List<Faculty> getAllFaculties();
 }
