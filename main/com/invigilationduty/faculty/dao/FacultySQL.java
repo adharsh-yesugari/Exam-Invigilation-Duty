@@ -8,4 +8,6 @@ public interface FacultySQL {
     String SEARCH_FACULTY_BY_EMAIL = "SELECT faculty_firstname, faculty_lastname, faculty_emailID, faculty_password FROM FACULTY_DETAILS WHERE faculty_emailId = ?";
 
     String ADD_FACULTY_LEISURE_TIME ="UPDATE FACULTY_DETAILS SET faculty_leisure_time = ? WHERE faculty_emailId = ?";
+
+    String GET_ALL_FACULTIES = "SELECT * FROM FACULTY_DETAILS";
 }
