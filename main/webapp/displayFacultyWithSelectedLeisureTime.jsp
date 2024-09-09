@@ -21,7 +21,6 @@
                     <tr>
                         <th>First Name</th>
                         <th>Email ID</th>
-                        <th>Choose</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,16 +35,6 @@
                     <tr>
                         <td><%= faculty.getFirstName() %></td>
                         <td><%= faculty.getEmailId() %></td>
-                        <td>
-                            <form action="chooseFacultyForLeisureTime" method="post">
-                                <input type="hidden" name="facultyFirstName" value="<%= faculty.getFirstName() %>">
-                                <input type="hidden" name="facultyEmail" value="<%= faculty.getEmailId() %>">
-                                <input type="hidden" name="exam_name" value="<%= examName %>">
-                                <input type="hidden" name="exam_time" value="<%= examTime %>">
-                                <input type="hidden" name="exam_date" value="<%= examDate %>">
-                                <button type="submit">Choose</button>
-                            </form>
-                        </td>
                     </tr>
                     <%
                             }
@@ -59,6 +48,13 @@
                     %>
                 </tbody>
             </table>
+            <form action="chooseFacultyForLeisureTime" method="post">
+                <input type="hidden" name="randomSelection" value="true">
+                <input type="hidden" name="exam_name" value="<%= examName %>">
+                <input type="hidden" name="exam_time" value="<%= examTime %>">
+                <input type="hidden" name="exam_date" value="<%= examDate %>">
+                <button class="btn choose" type="submit">Choose Random</button>
+            </form>
         </div>
     </section>
 </body>
