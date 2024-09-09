@@ -162,39 +162,6 @@ public class AdminDatabaseImplementation extends Dao implements AdminDatabase{
         }
 
         return facultyList;
-
-
-       /* List<Faculty> facultyList = new ArrayList<>();
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        Faculty faculty = new Faculty();
-        try {
-            connection = getConnection();
-            preparedStatement = getPreparedStatement(connection, AdminSQL.FACULTY_LEISURE_TIME_DATA);
-            resultSet = getResultSet(preparedStatement);
-            while(resultSet.next()) {
-                String facultyLeisureTime = resultSet.getString("faculty_leisure_time");
-                //System.out.println("FacultyLeisureTime : " + facultyLeisureTime);
-                String[] time = facultyLeisureTime.split(" ");
-                if (time.length > 0 && time[0].equals(leisureTime)) {
-                    faculty.setFirstName(resultSet.getString("faculty_firstname"));
-                    faculty.setEmailId(resultSet.getString("faculty_emailId"));
-                    faculty.setLeisureTime(facultyLeisureTime);
-                    faculty = new Faculty(faculty.getFirstName(), faculty.getEmailId(), faculty.getLeisureTime());
-                   // System.out.println(faculty.toString());
-                    facultyList.add(faculty);
-                }
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            closeResultSet(resultSet);
-            closePreparedStatement(preparedStatement);
-            closeConnection(connection);
-        }
-
-        return facultyList;*/
     }
 
     @Override
@@ -236,6 +203,37 @@ public class AdminDatabaseImplementation extends Dao implements AdminDatabase{
             closeConnection(connection);
         }
         return faculty;
+    }
+
+     @Override
+    public List<Faculty> getAllFaculties() {
+        List<Faculty> facultyList = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            connection = getConnection();
+            preparedStatement = getPreparedStatement(connection, FacultySQL.GET_ALL_FACULTIES);
+            resultSet = getResultSet(preparedStatement);
+            while (resultSet.next()) {
+                Faculty faculty = new Faculty();
+                faculty.setFirstName(resultSet.getString("faculty_firstname"));
+                faculty.setLastName(resultSet.getString("faculty_lastname"));
+                faculty.setGender(resultSet.getString("faculty_gender"));
+                faculty.setPhoneNumber(resultSet.getString("faculty_phonenumber"));
+                faculty.setQualification(resultSet.getString("faculty_qualification"));
+                faculty.setEmailId(resultSet.getString("faculty_emailId"));
+                faculty.setLeisureTime(resultSet.getString("faculty_leisure_time"));
+                facultyList.add(faculty);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            closeResultSet(resultSet);
+            closePreparedStatement(preparedStatement);
+            closeConnection(connection);
+        }
+        return facultyList;
     }
 
 }
