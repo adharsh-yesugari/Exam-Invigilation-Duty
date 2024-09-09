@@ -35,4 +35,9 @@ public class AdminServiceImplementation implements AdminService {
         return adminDatabase.randomHallAllocatedSpecifiedFaculty(faculty);
     }
 
+    @Override
+    public List<Faculty> getFacultyList() {
+        return adminDatabase.getAllFaculties();
+    }
+
 }
