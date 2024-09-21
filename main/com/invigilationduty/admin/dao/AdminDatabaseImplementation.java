@@ -140,17 +140,19 @@ public class AdminDatabaseImplementation extends Dao implements AdminDatabase{
                 String facultyLeisureTime = resultSet.getString("faculty_leisure_time");
                 String facultyEmailId = resultSet.getString("faculty_emailId");
 
-                // Check if the faculty has the desired leisure time
-                String[] time = facultyLeisureTime.split(" ");
-                if (time.length > 0 && time[0].equals(leisureTime) && !addedFacultyEmails.contains(facultyEmailId)) {
-                    Faculty faculty = new Faculty();
-                    faculty.setFirstName(resultSet.getString("faculty_firstname"));
-                    faculty.setEmailId(facultyEmailId);
-                    faculty.setLeisureTime(facultyLeisureTime);
-                    facultyList.add(faculty);
+                // Check if facultyLeisureTime is not null
+                if (facultyLeisureTime != null) {
+                    String[] time = facultyLeisureTime.split(" ");
+                    if (time.length > 0 && time[0].equals(leisureTime) && !addedFacultyEmails.contains(facultyEmailId)) {
+                        Faculty faculty = new Faculty();
+                        faculty.setFirstName(resultSet.getString("faculty_firstname"));
+                        faculty.setEmailId(facultyEmailId);
+                        faculty.setLeisureTime(facultyLeisureTime);
+                        facultyList.add(faculty);
 
-                    // Add faculty email to the set to prevent duplicates
-                    addedFacultyEmails.add(facultyEmailId);
+                        // Add faculty email to the set to prevent duplicates
+                        addedFacultyEmails.add(facultyEmailId);
+                    }
                 }
             }
         } catch (SQLException e) {
