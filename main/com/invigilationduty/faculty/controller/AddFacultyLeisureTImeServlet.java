@@ -22,7 +22,10 @@ public class AddFacultyLeisureTImeServlet extends HttpServlet {
         String facultyEmailId = request.getParameter("faculty_emailId");
         String[] names = facultyNames.split(" ");
         String facultyFirstName = names[0];
-        String facultyLastName = names[1];
+        String facultyLastName = "";
+        if (names.length > 1) {
+            facultyLastName = names[1];  // Only set if the last name is present
+        }
         HttpSession session  = request.getSession();
         session.setAttribute("facultyEmailId", facultyEmailId);
         Faculty faculty = new Faculty(facultyFirstName, facultyEmailId, facultyLeisureTime);
